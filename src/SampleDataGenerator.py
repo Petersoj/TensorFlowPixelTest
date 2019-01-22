@@ -10,7 +10,7 @@ class SampleDataGenerator:
     """
 
     class Constants:
-        Solid = "solid"
+        Solid = "Solid"
         Diagonal = "Diagonal"
         Horizontal = "Horizontal"
         Vertical = "Vertical"
@@ -26,13 +26,13 @@ class SampleDataGenerator:
     def __generateSample__(cls):
         label = SampleDataGenerator.__labels__[int(random.random() * len(SampleDataGenerator.__labels__))]
         base = random.random() * 0.75 + 0.25
-        if (label == SampleDataGenerator.Constants.Solid):
+        if label == SampleDataGenerator.Constants.Solid:
             return ([base, SampleDataGenerator.capture(base + (random.random() / 10 - 0.05) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 10 - 0.05) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 10 - 0.05) * base,0,1)], SampleDataGenerator.Constants.Solid)
-        elif (label == SampleDataGenerator.Constants.Diagonal):
+        elif label == SampleDataGenerator.Constants.Diagonal:
             return ([base, SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 10 - 0.05) * base,0,1)], SampleDataGenerator.Constants.Diagonal)
-        elif (label == SampleDataGenerator.Constants.Horizontal):
+        elif label == SampleDataGenerator.Constants.Horizontal:
             return ([base, SampleDataGenerator.capture(base + (random.random() / 10 - 0.05) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1)], SampleDataGenerator.Constants.Horizontal)
-        elif (label == SampleDataGenerator.Constants.Vertical):
+        elif label == SampleDataGenerator.Constants.Vertical:
             return ([base, SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 10 - 0.05) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1)], SampleDataGenerator.Constants.Vertical)
 
     @classmethod
