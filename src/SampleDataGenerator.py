@@ -10,11 +10,11 @@ class SampleDataGenerator:
     """
 
     class Constants:
-        Solid = "Solid"
-        Diagonal = "Diagonal"
-        Horizontal = "Horizontal"
-        Vertical = "Vertical"
-        Unknown = "unknown"
+        Solid = 0
+        Diagonal = 1
+        Horizontal = 2
+        Vertical = 3
+        Unknown = 4
 
     @classmethod
     def capture(cls, value, minValue, maxValue):
