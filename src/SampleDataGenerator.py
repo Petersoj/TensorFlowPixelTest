@@ -41,7 +41,7 @@ class SampleDataGenerator:
         elif label == SampleDataGenerator.Constants.Vertical:
             tmp = [[base, SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 10 - 0.05) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1)], SampleDataGenerator.Constants.Vertical]
             if random.random() >= 0.5:
-                tmp[0] = [*tmp[0][2:], *tmp[0][0:2]]
+                tmp[0] = [tmp[0][1], tmp[0][0], tmp[0][3], tmp[0][1]]
             return tmp
         else:
             tmp = ([base, SampleDataGenerator.capture(base + (random.random() / 20 - 0.05) * base, 0, 1),
