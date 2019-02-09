@@ -1,5 +1,5 @@
 import random
-
+import math
 
 class SampleDataGenerator:
     """
@@ -35,11 +35,17 @@ class SampleDataGenerator:
         elif label == SampleDataGenerator.Constants.Vertical:
             return ([base, SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 10 - 0.05) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1)], SampleDataGenerator.Constants.Vertical)
         else:
-            return ([base, SampleDataGenerator.capture(base + (random.random() / 20 - 0.05) * base, 0, 1),
+            tmp = ([base, SampleDataGenerator.capture(base + (random.random() / 20 - 0.05) * base, 0, 1),
                      SampleDataGenerator.capture(base + (random.random() / 20 - 0.05) * base, 0, 1),
                      SampleDataGenerator.capture(base + (random.random() / 20 - 0.05) * base, 0, 1)],
                     SampleDataGenerator.Constants.Unknown)
-
+            randindex = math.floor(random.random() * 3 + 0.5)
+            if tmp[0][randindex] > 0.5:
+                tmp[0][randindex] -= 0.45
+            else:
+                tmp[0][randindex] += 0.45
+            tmp[0][randindex] = SampleDataGenerator.capture(tmp[0][randindex], 0, 1)
+            return tmp
     @classmethod
     def generateSamples(cls, amount, seed=None):
         if not seed == None:
