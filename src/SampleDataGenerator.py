@@ -20,7 +20,7 @@ class SampleDataGenerator:
     def capture(cls, value, minValue, maxValue):
         return min(maxValue, max(minValue, value))
 
-    __labels__ = [Constants.Solid, Constants.Diagonal, Constants.Horizontal, Constants.Vertical]
+    __labels__ = [Constants.Solid, Constants.Diagonal, Constants.Horizontal, Constants.Vertical, Constants.Unknown]
 
     @classmethod
     def __generateSample__(cls):
@@ -34,6 +34,11 @@ class SampleDataGenerator:
             return ([base, SampleDataGenerator.capture(base + (random.random() / 10 - 0.05) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1)], SampleDataGenerator.Constants.Horizontal)
         elif label == SampleDataGenerator.Constants.Vertical:
             return ([base, SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 10 - 0.05) * base,0,1), SampleDataGenerator.capture(base + (random.random() / 3 - 0.5) * base,0,1)], SampleDataGenerator.Constants.Vertical)
+        else:
+            return ([base, SampleDataGenerator.capture(base + (random.random() / 20 - 0.05) * base, 0, 1),
+                     SampleDataGenerator.capture(base + (random.random() / 20 - 0.05) * base, 0, 1),
+                     SampleDataGenerator.capture(base + (random.random() / 20 - 0.05) * base, 0, 1)],
+                    SampleDataGenerator.Constants.Unknown)
 
     @classmethod
     def generateSamples(cls, amount, seed=None):
